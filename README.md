@@ -121,7 +121,7 @@ method does.
 
 ## Further reading
 
-See `LITERATURE_AND_FINDINGS.md` for the literature review and which parts of this work were
+Start with `HANDOFF.md` if you are picking this project up. See `LITERATURE_AND_FINDINGS.md` for the literature review and which parts of this work were
 already known, and `PROOF_PLAN.md` for the plan of attack on a formal proof. `data/` holds
 Chaffin's lists of holes below 2³² and of all landings up to 10⁶¹².
 
