@@ -41,6 +41,37 @@ Written 26 November 2026. Companion to `LITERATURE_AND_FINDINGS.md`.
     first 0.1% of steps, because the last zigzag of a pass runs straight through the wrap
     (`sim/passes.c`). So 4b is about where free runs end, not about counting.
 
+- **Phase 5, steps 1–2: the fresh-frontier cascade model** (`sim/shadow.cpp`, `sim/entries.cpp`).
+  The model is the exact walk, run with only the visited numbers below a bound plus whatever the
+  cascade itself writes. Every other number is treated as free: "no older visit gets in the way".
+  - **Validation (step 2).** At each real cascade the model is forked and its sequence of eaten
+    holes compared with the real one.
+    - After 10¹⁵: in 3 of 5 cascades the real path is a prefix of the model's, including an exact
+      430-hole match for the 9·10¹⁷ cascade that stopped at 963744. The other 2 diverge after
+      13 and 7 holes.
+    - Before 10¹²: the model runs far deeper than reality.
+
+    So older visits mostly kill cascades early rather than redirect them. The model is too
+    permissive, mostly in one direction, and it improves with scale. The simple one-line rule
+    (`restart_jump_index` with a fresh next test) predicts the next hole 22% of the time before
+    10¹², 33% for 10¹²–10¹⁵ and 84% after 10¹⁵.
+  - **Result (step 1), on Chaffin's holes below 2³² after 10⁶¹².** Entering at every hole, under
+    6 start times (18,618 runs), with the outcome independent of the start time:
+    - **3,035 of 3,102 entries end at the hole 2023215.** That is a barrier: in this model no
+      cascade from far above gets past it.
+    - **852655 is reachable.** Exactly 43 entries lead to it, all holes below 15.3 million;
+      class-1 single holes keep the class and walk down to it.
+    - **The reaching windows are explicit.** In the model, 852655 is filled exactly when the
+      walk lands at level 1 with its first jump test inside one of 43 explicit windows
+      (`sim/windows_852655.txt`). That is 5.28 million possible test values, all between 852655
+      and 16.3 million; 129 spot checks deeper inside the windows all reach it.
+  - **What this means.** The hole structure alone does *not* protect 852655: the "no entry
+    reaches it" outcome is ruled out. The model reduces 852655's fate to whether the walk ever
+    again lands at level 1 within about 1.6·10⁷ of the diagonal, at a height inside those
+    windows. That is the `window` theorem's question with a 200× larger window. The last such
+    landing in Chaffin's data was around 10⁴¹, at 2023155. The model is only heuristic: real
+    cascades are cut shorter by older visits.
+
 ## The situation
 
 Every part of a formal proof is within reach except one: the exact rules of the walk, the

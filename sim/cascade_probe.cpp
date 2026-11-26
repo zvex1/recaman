@@ -42,6 +42,7 @@ static inline u64 predVisited(u64 x) {
 
 static std::map<u64, u64> R;   // intervals written since the current cascade began
 static bool inCascade = false;
+static bool havePending = false, haveOpen = false; static u64 pendEll = 0, pendJ = 0, predY = 0; static int predWhat = 0;
 static void addTo(std::map<u64,u64>& M, u64 lo, u64 hi) {
   auto it = M.upper_bound(lo);
   if (it != M.begin()) { auto p = std::prev(it); if (p->second + 1 >= lo) it = p; }
@@ -176,6 +177,22 @@ int main(int argc, char** argv) {
       if (cascB) {
         bool deepz = x < cascB;
         if (deepz && !inCascade) { inCascade = true; R.clear(); cascStart = k; printf("CASCADE start %llu\n", k); }
+        // Phase 5 model check. After a deep zigzag drained [ell, x], the model predicts the next
+        // deep landing: j = tests inside the run just written, landing height ell-8-5j, then the
+        // largest hole <= ell-9-5j in class (ell+j) mod 3 (0 = the class is empty: death).
+        if (havePending) {
+          havePending = false;
+          long long hh = (long long)pendEll - 8 - 5 * (long long)pendJ;
+          if (hh < 2) { predWhat = 2; predY = 0; }
+          else { predY = firstFreeInClass((u64)hh - 1, 1); predWhat = predY ? 1 : 3; }
+          haveOpen = true;
+        }
+        if (deepz && haveOpen) {
+          haveOpen = false;
+          printf("M pred=%s predY=%llu actual=%llu %s\n", predWhat == 1 ? "land" : predWhat == 2 ? "die-low" : "die-empty",
+                 predY, x, (predWhat == 1 && predY == x) ? "OK" : "MISS");
+        }
+        if (deepz && !jump) { havePending = true; pendEll = x - r; pendJ = r >= 4 ? (r - 4) / 3 + 1 : 0; }
         if (deepz) sinceDeep = 0; else sinceDeep++;
         if (inCascade) {
           u64 m = jump ? jstar : r;
@@ -196,7 +213,12 @@ int main(int argc, char** argv) {
           }
           printf("Z k=%llu x=%llu lev=%llu h=%lld r=%llu %s m=%llu self=%llu fossil=%llu cause=%s y=%llu\n",
                  k, x, k ? x / k : 0, h, r, jump ? "jump" : "full", m, selfB, fossB, cause, jump ? y : 0ULL);
-          if (sinceDeep > 6) { inCascade = false; printf("CASCADE end\n"); }
+          if (sinceDeep > 6) {
+            inCascade = false;
+            if (haveOpen) { haveOpen = false; printf("M pred=%s predY=%llu actual=none %s\n", predWhat == 1 ? "land" : predWhat == 2 ? "die-low" : "die-empty", predY, predWhat == 1 ? "MISS" : "OK"); }
+            havePending = false;
+            printf("CASCADE end\n");
+          }
         }
       }
       if (sampleF > 0 && k >= nextSample) {

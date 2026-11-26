@@ -1,0 +1,6 @@
+cascade 1: real eats 57 holes (lowest 964419), shadow 444 (lowest 963744), agree on first 13
+cascade 2: real eats 8 holes (lowest 79504751), shadow 413 (lowest 963744), agree on first 7
+cascade 3: real eats 69 holes (lowest 48708718), shadow 393 (lowest 963744), agree on first 69
+cascade 4: real eats 113 holes (lowest 48621850), shadow 430 (lowest 963744), agree on first 113
+cascade 5: real eats 430 holes (lowest 963744), shadow 430 (lowest 963744), agree on first 430  EXACT
+cascades compared: 5, exact agreement: 1
