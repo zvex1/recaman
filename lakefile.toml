@@ -3,3 +3,9 @@ defaultTargets = ["Recaman"]
 
 [[lean_lib]]
 name = "Recaman"
+globs = ["Recaman", "Recaman.+"]
+precompileModules = true
+
+[[lean_exe]]
+name = "fastcheck"
+root = "tools.FastMain"
