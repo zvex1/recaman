@@ -1,6 +1,7 @@
 import Recaman.Wilks
 import Recaman.Open
 import Recaman.Cascade
+import Recaman.Sweep
 
 /-! Axiom audit for the modules beyond `Recaman.lean` (which audits itself). Everything prints
 only `propext`, `Classical.choice`, `Quot.sound`, except the three theorems resting on the
@@ -28,3 +29,7 @@ only `propext`, `Classical.choice`, `Quot.sound`, except the three theorems rest
 #print axioms Recaman.wilks
 #print axioms Recaman.fate_852655
 #print axioms Recaman.restart_jump_index
+#print axioms Recaman.one_chance
+#print axioms Recaman.lev_ne_zero_in_window
+#print axioms Recaman.fwd_in_window
+#print axioms Recaman.occurs_852655_iff
