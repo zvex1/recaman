@@ -9,7 +9,8 @@ Both theorems below run the verified evaluator of `Recaman.Fast`.
 * `wilks` re-derives the 2001 Bell Labs result (Wilks): every `m < 852655` occurs within the
   first `10^15` terms and `852655` does not. Running `10^15` steps is beyond the kernel, so this
   one uses `native_decide`: the evaluator is compiled and run, and Lean trusts that its compiler
-  produced the right answer. This shows up in the axiom audit as `Lean.ofReduceBool`, and only
+  produced the right answer. In the axiom audit this appears as the extra axiom
+  `Recaman.check_wilks._native.native_decide.ax_1_1`, and only
   `wilks`, `fate_852655` and the `check_wilks` certificate depend on it.
 -/
 

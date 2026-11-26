@@ -8,7 +8,7 @@ simulator used to study how the conjecture could fail or hold.
 - Every theorem depends only on Lean's standard axioms `propext`, `Classical.choice` and
   `Quot.sound`, with one marked exception: `wilks` and `fate_852655` (in `Recaman/Wilks.lean`)
   rest on a `native_decide` run of the verified evaluator, so they also trust Lean's compiler
-  (`Lean.ofReduceBool`). `Recaman.lean` and `Recaman/Audit.lean` print the axiom audit on every
+  (the audit lists it as the axiom `Recaman.check_wilks._native.native_decide.ax_1_1`). `Recaman.lean` and `Recaman/Audit.lean` print the axiom audit on every
   build.
 
 ## Status

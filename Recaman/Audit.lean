@@ -3,7 +3,7 @@ import Recaman.Open
 
 /-! Axiom audit for the modules beyond `Recaman.lean` (which audits itself). Everything prints
 only `propext`, `Classical.choice`, `Quot.sound`, except the three theorems resting on the
-`native_decide` run, which also show `Lean.ofReduceBool`. -/
+`native_decide` run, which also show `check_wilks._native.native_decide.ax_1_1`. -/
 
 #print axioms Recaman.clock_fwd
 #print axioms Recaman.clock_back
