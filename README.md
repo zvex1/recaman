@@ -4,9 +4,12 @@ A machine-checked formalization of Recamán's sequence ([OEIS A005132](https://o
 and of **Sloane's conjecture** that every natural number occurs in it, plus an exact fast
 simulator used to study how the conjecture could fail or hold.
 
-- Core Lean 4 (v4.36.0) only: no Mathlib, no `sorry`, no `native_decide`.
+- Core Lean 4 (v4.36.0) only: no Mathlib, no `sorry`.
 - Every theorem depends only on Lean's standard axioms `propext`, `Classical.choice` and
-  `Quot.sound`. The `#print axioms` audit at the end of `Recaman.lean` prints this on every build.
+  `Quot.sound`, with one marked exception: `wilks` and `fate_852655` (in `Recaman/Wilks.lean`)
+  rest on a `native_decide` run of the verified evaluator, so they also trust Lean's compiler
+  (`Lean.ofReduceBool`). `Recaman.lean` and `Recaman/Audit.lean` print the axiom audit on every
+  build.
 
 ## Status
 
@@ -34,6 +37,25 @@ evidence, not a proof.
 | `window_suff` | Conversely, such a landing with a long enough free run below it does produce `m`. |
 | `window_852655` | Takes Chaffin's data as hypotheses: 852655 and 930058 are the two smallest missing numbers after 10²³⁰ steps. Then 852655 can only appear via a jump landing between 852,656 and 930,056 above the diagonal. |
 | `small_occur` | Every `m < 19` occurs within the first 131 terms. |
+
+## Phases 1–4 of `PROOF_PLAN.md` (`Recaman/`)
+
+| Module | Theorem | What it says |
+|---|---|---|
+| `Clock` | `clock_fwd`, `clock_back`, `clock_fwd_wrap`, `clock_back_wrap` | With level `lev n = a n / n` and offset `off n = a n % n`: each step lowers the offset by the level and moves the level by ±1, unless `off n < lev n`, when the offset wraps up by `n + 1 − lev n` and the level moves by 0 or −2. |
+| `Clock` | `wrap_between`, `wrap_infinitely_often`, `wrap_iff` | A wrap (the offset going up) occurs in every stretch from `n` to `3n`. |
+| `Clock` | `below_diag_antitone` | Between two wraps, every term below the diagonal is at most every earlier one (Chaffin's monotonicity, exactly). |
+| `Clock` | `fill_iff` | For `y + 1 < n`: step `n + 1` lands on a new number `y` exactly when `lev n = 1` and `off n = y + 1`. |
+| `Intervals` | `IT.insRange_spec`, `IT.mem_iff`, `IT.firstFree_spec`, … | A balanced interval tree with verified union, membership, free-run and "first free number in a residue class" queries. |
+| `Fast` | `zig_block`, `jump_block`, `run_spec`, `check2_sound` | A phase-level evaluator: one zigzag (or zigzag plus jump) per step of the machine, proved to compute `a N` and the exact visited set. Compiled, it reaches `10^15` steps in about 5 minutes. |
+| `Wilks` | `occur_below_1355` | Kernel-checked: every `m < 1355` occurs within the first `10^6` terms, and 1355 does not. |
+| `Wilks` | `wilks` | Every `m < 852655` occurs within the first `10^15` terms, and 852655 does not (Wilks, 2001), via `native_decide`. |
+| `Wilks` | `fate_852655` | If 852655 ever occurs, at step `n`, then `n > 10^15` and either 930058 occurred first or a jump landed between 852656 and 930056 above the diagonal. No data hypotheses. |
+| `Counting` | `back_count` | Exactly: `2 · #backward steps + lev n + #wraps = n`. |
+| `Counting` | `off_add_slev` | Exactly: `off n + Σ lev m = Σ (m + 1)` over the wraps. |
+| `Counting` | `nwrap_pow_three` | At least `k` wraps by step `3^k`. |
+| `Counting`, `Open` | `nwrap_double`, `nback_pow_two`, `density_of_levelBounded` | If `a n ≤ C n` for all `n`, then at most `(C+1)k` wraps occur by step `2^k`, and half of all steps (up to `O(C log n)`) go backward to new numbers. |
+| `Open` | `BelowDiagonalInfinitelyOften`, `LevelBounded` | Stated, not proved. The second may be false: the maximum of `a n / n` is 4 by `10^3`, 7 by `10^5` and 8 by `10^9`. |
 
 ## Simulator (`sim/recaman_fast.cpp`)
 
@@ -104,5 +126,9 @@ Chaffin's lists of holes below 2³² and of all landings up to 10⁶¹².
 
 ## Build
 
-With [elan](https://github.com/leanprover/elan) installed, run `lake build`.
-Alternatively, with Lean 4.36.0 on your `PATH`, run `lean Recaman.lean`.
+With [elan](https://github.com/leanprover/elan) installed, run `lake build`. A clean build takes
+about 7 minutes, almost all of it the `10^15`-step run behind `wilks` and the one-minute kernel
+check behind `occur_below_1355`. `lake build fastcheck` builds a command-line front end for the
+verified evaluator: `.lake/build/bin/fastcheck 1000000000000` prints `a(N)`, the smallest missing
+number and the interval count. With only Lean 4.36.0 on your `PATH`, `lean Recaman.lean` checks
+the main file.

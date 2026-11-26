@@ -2,6 +2,25 @@
 
 Written 26 November 2026. Companion to `LITERATURE_AND_FINDINGS.md`.
 
+## Status (26 November 2026, after Phases 1–4)
+
+- **Phase 1, done.** `Recaman/Clock.lean`: the four cases of the clock law; a wrap in every
+  stretch `[n, 3n)`; Chaffin's monotonicity (`below_diag_antitone`); `fill_iff`.
+- **Phase 2, done.** `Recaman/Intervals.lean` and `Recaman/Fast.lean`: a verified interval tree
+  and a phase-level evaluator (one zigzag or jump per step), proved to compute `a N` and the
+  exact visited set (`run_spec`).
+- **Phase 3, done.** `Recaman/Wilks.lean`: `occur_below_1355` (kernel only, `10^6` steps; the
+  kernel costs grow about 4× per decade, so this is near its practical limit), `wilks`
+  (`10^15` steps via `native_decide`, about 5 minutes) and `fate_852655`, which is
+  `window_852655` without data hypotheses.
+- **Phase 4, partly done.**
+  - Proved: 4a (wraps), the exact identities `back_count` and `off_add_slev`, at least `k`
+    wraps by step `3^k`, and 4d *conditional on* bounded level (`density_of_levelBounded`).
+  - Not proved: 4b (`BelowDiagonalInfinitelyOften`) and 4c (`LevelBounded`), both stated in
+    `Recaman/Open.lean`. 4c may be false: the maximum of `a n / n` reaches 8 by `10^9` and is
+    still creeping up. `back_count` shows exactly what 4d needs: backward steps have density ½
+    iff `lev n + #wraps = o(n)`.
+
 ## The situation
 
 Every part of a formal proof is within reach except one: the exact rules of the walk, the
