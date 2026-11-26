@@ -1,0 +1,49 @@
+record: by step 1 every number below 2 has occurred (previous smallest missing: 1)
+record: by step 4 every number below 4 has occurred (previous smallest missing: 2)
+record: by step 132 every number below 19 has occurred (previous smallest missing: 4)
+   zigzag (after forward steps) step 116: value 378 = 3*t +30
+   zigzag (after jump) step 119: value 258 = 2*t +20
+   zigzag (after jump) step 120: value 138 = 1*t +18
+   zigzag (after jump) step 129: value 5 = 0*t +5
+progress: n=1.228e+03  phases=53  jumps=32  intervals=36  smallest missing=19  (0.0s)
+progress: n=1.012e+04  phases=171  jumps=111  intervals=102  smallest missing=19  (0.0s)
+record: by step 99734 every number below 61 has occurred (previous smallest missing: 19)
+   zigzag (after jump) step 99476: value 832 = 0*t +832
+   zigzag (after forward steps) step 99483: value 299270 = 3*t +821
+   zigzag (after jump) step 99678: value 199495 = 2*t +139
+   zigzag (after jump) step 99715: value 99762 = 1*t +47
+progress: n=1.015e+05  phases=725  jumps=495  intervals=424  smallest missing=61  (0.0s)
+record: by step 181653 every number below 879 has occurred (previous smallest missing: 61)
+   zigzag (after jump) step 181610: value 181735 = 1*t +125
+   zigzag (after jump) step 181643: value 76 = 0*t +76
+   zigzag (after forward steps) step 181647: value 363364 = 2*t +70
+   zigzag (after jump) step 181648: value 181716 = 1*t +68
+record: by step 328002 every number below 1355 has occurred (previous smallest missing: 879)
+   zigzag (after jump) step 326166: value 5015 = 0*t +5015
+   zigzag (after forward steps) step 326171: value 983518 = 3*t +5005
+   zigzag (after jump) step 326734: value 656503 = 2*t +3035
+   zigzag (after jump) step 326989: value 329387 = 1*t +2398
+progress: n=1.001e+06  phases=2461  jumps=1702  intervals=1441  smallest missing=1355  (0.0s)
+progress: n=1.001e+07  phases=7745  jumps=5407  intervals=4456  smallest missing=1355  (0.0s)
+progress: n=1.000e+08  phases=23668  jumps=16510  intervals=13652  smallest missing=1355  (0.0s)
+progress: n=1.000e+09  phases=64717  jumps=45784  intervals=37651  smallest missing=1355  (0.0s)
+progress: n=1.000e+10  phases=181824  jumps=129057  intervals=105346  smallest missing=1355  (0.1s)
+progress: n=1.000e+11  phases=492615  jumps=354684  intervals=288731  smallest missing=1355  (0.4s)
+record: by step 325374625245 every number below 2406 has occurred (previous smallest missing: 1355)
+   zigzag (after jump) step 325374586662: value 325374645891 = 1*t +59229
+   zigzag (after jump) step 325374625053: value 1643 = 0*t +1643
+   zigzag (after forward steps) step 325374625057: value 650749251751 = 2*t +1637
+   zigzag (after jump) step 325374625058: value 325374626693 = 1*t +1635
+progress: n=1.000e+12  phases=1449901  jumps=1048335  intervals=861606  smallest missing=2406  (1.3s)
+progress: n=1.000e+13  phases=4313176  jumps=3139552  intervals=2540849  smallest missing=2406  (4.2s)
+progress: n=1.000e+14  phases=12198393  jumps=8927242  intervals=7182404  smallest missing=2406  (12.3s)
+record: by step 394178473633984 every number below 852655 has occurred (previous smallest missing: 2406)
+   zigzag (after jump) step 394178473633599: value 394178473636582 = 1*t +2983
+   zigzag (after jump) step 394178473633908: value 2520 = 0*t +2520
+   zigzag (after forward steps) step 394178473633912: value 788356947270338 = 2*t +2514
+   zigzag (after jump) step 394178473633913: value 394178473636425 = 1*t +2512
+progress: n=1.000e+15  phases=35616226  jumps=26121687  intervals=20778012  smallest missing=852655  (37.4s)
+N=1000000000000000 a(N)=1875298927349170
+smallest missing=852655  missing in [1,N]=537069606655478  holes=11435181 (w1=1255240 w2=1086061 w3+=9093880)
+first missing numbers (mod 3): 852655(1) 930058(1) 930557(2) 963744(0) 964419(0) 964420(1) 964722(0) 964723(1) 964724(2) 964725(0) 964726(1) 964727(2)
+phases=35616226 jumps=26121687 ordinary steps=35616290 intervals=20778012 scan steps=49671325 time=40.55s

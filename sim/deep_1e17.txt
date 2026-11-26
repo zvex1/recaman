@@ -1,0 +1,104 @@
+decade  deep zigzags  numbers filled
+1e0               2               6
+1e1               6              40
+1e2              43             461
+1e3             120            4545
+1e4             554           45689
+1e5            1735          449630
+1e6            3242         3376966
+1e7            2260         4797421
+1e8             910          371722
+1e9             391           62111
+1e10            246           41739
+1e11            214           21949
+1e12            125           10165
+1e13             79            5621
+1e14            115            5848
+1e15             13             528
+1e17             84            4198
+
+fills below the bound after step 1e+17:
+  step 8.9999e+17: 9889278..9889278 (landed on 9889278 by jump, from zigzag at 1*t+10297231)
+  step 8.9999e+17: 9608013..9608013 (landed on 9608013 by jump, from zigzag at 1*t+9889270)
+  step 8.9999e+17: 9593114..9593115 (landed on 9593115 by jump, from zigzag at 1*t+9608005)
+  step 8.9999e+17: 9579896..9579896 (landed on 9579896 by jump, from zigzag at 1*t+9593106)
+  step 8.9999e+17: 9566258..9566258 (landed on 9566258 by jump, from zigzag at 1*t+9579888)
+  step 8.9999e+17: 9566209..9566210 (landed on 9566210 by jump, from zigzag at 1*t+9566250)
+  step 8.9999e+17: 9566046..9566098 (landed on 9566098 by jump, from zigzag at 1*t+9566201)
+  step 8.9999e+17: 9029051..9029051 (landed on 9029051 by jump, from zigzag at 1*t+9565953)
+  step 8.9999e+17: 9021446..9021446 (landed on 9021446 by jump, from zigzag at 1*t+9029043)
+  step 8.9999e+17: 8866736..8866736 (landed on 8866736 by jump, from zigzag at 1*t+9021438)
+  step 8.9999e+17: 8718134..8718134 (landed on 8718134 by jump, from zigzag at 1*t+8866728)
+  step 8.9999e+17: 8676182..8676182 (landed on 8676182 by jump, from zigzag at 1*t+8718126)
+  step 8.9999e+17: 7710047..7710047 (landed on 7710047 by jump, from zigzag at 1*t+8676174)
+  step 8.9999e+17: 7031933..7031933 (landed on 7031933 by jump, from zigzag at 1*t+7710039)
+  step 8.9999e+17: 7026005..7026005 (landed on 7026005 by jump, from zigzag at 1*t+7031925)
+  step 8.9999e+17: 7013408..7013408 (landed on 7013408 by jump, from zigzag at 1*t+7025997)
+  step 8.9999e+17: 6979292..6979292 (landed on 6979292 by jump, from zigzag at 1*t+7013400)
+  step 8.9999e+17: 6969866..6969866 (landed on 6969866 by jump, from zigzag at 1*t+6979284)
+  step 8.9999e+17: 6168311..6168311 (landed on 6168311 by jump, from zigzag at 1*t+6969858)
+  step 8.9999e+17: 6167972..6167972 (landed on 6167972 by jump, from zigzag at 1*t+6168303)
+  step 8.9999e+17: 6166649..6166649 (landed on 6166649 by jump, from zigzag at 1*t+6167964)
+  step 8.9999e+17: 6166274..6166274 (landed on 6166274 by jump, from zigzag at 1*t+6166641)
+  step 8.9999e+17: 6165962..6165962 (landed on 6165962 by jump, from zigzag at 1*t+6166266)
+  step 8.9999e+17: 6164675..6164675 (landed on 6164675 by jump, from zigzag at 1*t+6165954)
+  step 8.9999e+17: 6159065..6159065 (landed on 6159065 by jump, from zigzag at 1*t+6164667)
+  step 8.9999e+17: 6144998..6144998 (landed on 6144998 by jump, from zigzag at 1*t+6159057)
+  step 8.9999e+17: 6144086..6144086 (landed on 6144086 by jump, from zigzag at 1*t+6144990)
+  step 8.9999e+17: 6114233..6114233 (landed on 6114233 by jump, from zigzag at 1*t+6144078)
+  step 8.9999e+17: 6112397..6112397 (landed on 6112397 by jump, from zigzag at 1*t+6114225)
+  step 8.9999e+17: 6078566..6078566 (landed on 6078566 by jump, from zigzag at 1*t+6112389)
+  step 8.9999e+17: 6077387..6077387 (landed on 6077387 by jump, from zigzag at 1*t+6078558)
+  step 8.9999e+17: 6075398..6075398 (landed on 6075398 by jump, from zigzag at 1*t+6077379)
+  step 8.9999e+17: 6073163..6073163 (landed on 6073163 by jump, from zigzag at 1*t+6075390)
+  step 8.9999e+17: 6067484..6067484 (landed on 6067484 by jump, from zigzag at 1*t+6073155)
+  step 8.9999e+17: 6040217..6040217 (landed on 6040217 by jump, from zigzag at 1*t+6067476)
+  step 8.9999e+17: 6031655..6031655 (landed on 6031655 by jump, from zigzag at 1*t+6040209)
+  step 8.9999e+17: 6030371..6030371 (landed on 6030371 by jump, from zigzag at 1*t+6031647)
+  step 8.9999e+17: 6018167..6018167 (landed on 6018167 by jump, from zigzag at 1*t+6030363)
+  step 8.9999e+17: 6017585..6017585 (landed on 6017585 by jump, from zigzag at 1*t+6018159)
+  step 8.9999e+17: 5981858..5981858 (landed on 5981858 by jump, from zigzag at 1*t+6017577)
+  step 8.9999e+17: 5919067..5919068 (landed on 5919068 by jump, from zigzag at 1*t+5981850)
+  step 8.9999e+17: 5914351..5914351 (landed on 5914351 by jump, from zigzag at 1*t+5919059)
+  step 8.9999e+17: 5914342..5914342 (landed on 5914342 by jump, from zigzag at 1*t+5914343)
+  step 8.9999e+17: 5912383..5912383 (landed on 5912383 by jump, from zigzag at 1*t+5914334)
+  step 8.9999e+17: 5902738..5902738 (landed on 5902738 by jump, from zigzag at 1*t+5912375)
+  step 8.9999e+17: 5864092..5864092 (landed on 5864092 by jump, from zigzag at 1*t+5902730)
+  step 8.9999e+17: 5857183..5857183 (landed on 5857183 by jump, from zigzag at 1*t+5864084)
+  step 8.9999e+17: 5811079..5811079 (landed on 5811079 by jump, from zigzag at 1*t+5857175)
+  step 8.9999e+17: 5280415..5280415 (landed on 5280415 by jump, from zigzag at 1*t+5811071)
+  step 8.9999e+17: 5278933..5278933 (landed on 5278933 by jump, from zigzag at 1*t+5280407)
+  step 8.9999e+17: 3859729..3859729 (landed on 3859729 by jump, from zigzag at 1*t+5278925)
+  step 8.9999e+17: 3857026..3857026 (landed on 3857026 by jump, from zigzag at 1*t+3859721)
+  step 8.9999e+17: 3622798..3622798 (landed on 3622798 by jump, from zigzag at 1*t+3857018)
+  step 8.9999e+17: 3613632..3613633 (landed on 3613633 by jump, from zigzag at 1*t+3622790)
+  step 8.9999e+17: 3493320..3493320 (landed on 3493320 by jump, from zigzag at 1*t+3613624)
+  step 8.9999e+17: 3268342..3268722 (landed on 3268722 by jump, from zigzag at 1*t+3493312)
+  step 8.9999e+17: 3262142..3264556 (landed on 3264556 by jump, from zigzag at 1*t+3267704)
+  step 8.9999e+17: 3257821..3257822 (landed on 3257822 by jump, from zigzag at 1*t+3258114)
+  step 8.9999e+17: 3254594..3254594 (landed on 3254594 by jump, from zigzag at 1*t+3257568)
+  step 8.9999e+17: 3239387..3239387 (landed on 3239387 by jump, from zigzag at 1*t+3254586)
+  step 8.9999e+17: 3171014..3171014 (landed on 3171014 by jump, from zigzag at 1*t+3239379)
+  step 8.9999e+17: 3084866..3084866 (landed on 3084866 by jump, from zigzag at 1*t+3171006)
+  step 8.9999e+17: 3083792..3083792 (landed on 3083792 by jump, from zigzag at 1*t+3084858)
+  step 8.9999e+17: 3083725..3083726 (landed on 3083726 by jump, from zigzag at 1*t+3083784)
+  step 8.9999e+17: 3083401..3083401 (landed on 3083401 by jump, from zigzag at 1*t+3083717)
+  step 8.9999e+17: 3082627..3082627 (landed on 3082627 by jump, from zigzag at 1*t+3083393)
+  step 8.9999e+17: 3082534..3082534 (landed on 3082534 by jump, from zigzag at 1*t+3082619)
+  step 8.9999e+17: 3081478..3081478 (landed on 3081478 by jump, from zigzag at 1*t+3082526)
+  step 8.9999e+17: 3081147..3081352 (landed on 3081352 by jump, from zigzag at 1*t+3081470)
+  step 8.9999e+17: 3063524..3063653 (landed on 3063653 by jump, from zigzag at 1*t+3080799)
+  step 8.9999e+17: 3063184..3063300 (landed on 3063300 by jump, from zigzag at 1*t+3063301)
+  step 8.9999e+17: 3053790..3053790 (landed on 3053790 by jump, from zigzag at 1*t+3062986)
+  step 8.9999e+17: 2279064..2279064 (landed on 2279064 by jump, from zigzag at 1*t+3053782)
+  step 8.9999e+17: 2028648..2028648 (landed on 2028648 by jump, from zigzag at 1*t+2279056)
+  step 8.9999e+17: 2027362..2027637 (landed on 2027637 by jump, from zigzag at 1*t+2028640)
+  step 8.9999e+17: 2026218..2026712 (landed on 2026712 by jump, from zigzag at 1*t+2026899)
+  step 8.9999e+17: 2023111..2023154 (landed on 2023154 by jump, from zigzag at 1*t+2025390)
+  step 8.9999e+17: 2020836..2020836 (landed on 2020836 by jump, from zigzag at 1*t+2023033)
+  step 8.9999e+17: 2017131..2017131 (landed on 2017131 by jump, from zigzag at 1*t+2020828)
+  step 8.9999e+17: 2015049..2015049 (landed on 2015049 by jump, from zigzag at 1*t+2017123)
+  step 8.9999e+17: 2012127..2012127 (landed on 2012127 by jump, from zigzag at 1*t+2015041)
+  step 8.9999e+17: 1823802..1823802 (landed on 1823802 by jump, from zigzag at 1*t+2012119)
+  step 8.9999e+17: 1722462..1722462 (landed on 1722462 by jump, from zigzag at 1*t+1823794)
+  step 8.9999e+17: 963744..963744 (landed on 963744 by jump, from zigzag at 1*t+1722454)
