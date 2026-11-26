@@ -1,2 +1,4 @@
 .lake/
 recaman-lean.tar.gz
+__pycache__/
+sim/recaman_fast
