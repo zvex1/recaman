@@ -55,6 +55,7 @@ evidence, not a proof.
 | `Counting` | `off_add_slev` | Exactly: `off n + Σ lev m = Σ (m + 1)` over the wraps. |
 | `Counting` | `nwrap_pow_three` | At least `k` wraps by step `3^k`. |
 | `Counting`, `Open` | `nwrap_double`, `nback_pow_two`, `density_of_levelBounded` | If `a n ≤ C n` for all `n`, then at most `(C+1)k` wraps occur by step `2^k`, and half of all steps (up to `O(C log n)`) go backward to new numbers. |
+| `Cascade` | `restart_test_self`, `restart_jump_index` | After a zigzag drains a run of `r` rounds, the restart's jump tests that fall inside the run it just wrote fail automatically, so any jump has `r < 3j + 4`. Observed: after `10^15`, 99.4% of restarts are explained by the cascade's own writes (`PROOF_PLAN.md`, Phase 5). |
 | `Open` | `BelowDiagonalInfinitelyOften`, `LevelBounded` | Stated, not proved. The second may be false: the maximum of `a n / n` is 4 by `10^3`, 7 by `10^5` and 8 by `10^9`. |
 
 ## Simulator (`sim/recaman_fast.cpp`)

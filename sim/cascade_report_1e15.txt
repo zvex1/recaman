@@ -1,0 +1,11 @@
+cascades after 1e+15: 5
+restart zigzags (first zigzag after draining a run):
+     567  jump; every failed test inside the run just written
+     109  jump; extra failures on numbers written earlier in this cascade
+       4  jump; some failures on numbers older than the cascade
+level-1 scans just above the diagonal (height < 1e9):
+     672  jump into a hole
+       2  full: empty-class
+       1  full: short-run
+(r mod 3, j - r div 3) for restarts explained by the run just eaten: [((0, 0), 383), ((1, 0), 116), ((2, 0), 68)]
+top of that run minus first test: [(4, 567)]

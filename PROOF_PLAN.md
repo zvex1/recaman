@@ -21,6 +21,26 @@ Written 26 November 2026. Companion to `LITERATURE_AND_FINDINGS.md`.
     still creeping up. `back_count` shows exactly what 4d needs: backward steps have density ½
     iff `lev n + #wraps = o(n)`.
 
+- **Phase 5, first tests (5a, 5c).** `sim/cascade_probe.cpp --cascade 100000000` logs every
+  zigzag of every cascade below 10⁸ up to 10¹⁸; results are in `sim/cascade_report_*.txt`.
+  - **5a holds better at larger scales.** Among the 680 restarts (the first zigzag after a
+    run is drained) in cascades after 10¹⁵:
+    - 567 jumped at the first test below the run just written;
+    - 109 more failed only on numbers written earlier in the same cascade;
+    - 4 were blocked by a number older than the cascade.
+
+    The fully internal share is 86% after 10⁶, 97.5% after 10¹² and 99.4% after 10¹⁵. The
+    first test is always exactly 4 below the top of the run just written. `Recaman/Cascade.lean`
+    proves why: tests inside that run fail automatically (`restart_test_self`), so any jump has
+    `r < 3j + 4` (`restart_jump_index`). When the next test is fresh, `j` and the next scan class
+    depend only on the run length, and a single hole preserves the class.
+  - **5c: late scans die mostly on an empty residue class.** After 10¹², 11 of the 15 failed
+    level-1 scans just above the diagonal had an empty class below them, and 4 had a short free
+    run. After 10¹⁵ the split is 2 to 1.
+  - **4b, observed.** Every pass between wraps dips below the diagonal, usually within its
+    first 0.1% of steps, because the last zigzag of a pass runs straight through the wrap
+    (`sim/passes.c`). So 4b is about where free runs end, not about counting.
+
 ## The situation
 
 Every part of a formal proof is within reach except one: the exact rules of the walk, the
