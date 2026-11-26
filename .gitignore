@@ -2,3 +2,4 @@
 recaman-lean.tar.gz
 __pycache__/
 sim/recaman_fast
+sim/lev1scan
